@@ -16,6 +16,14 @@ helloworld.src: helloworld.c after.kaem stage0-posix.src
 	echo -n "src " >> helloworld.src
 	wc -c ./after.kaem >> helloworld.src
 	cat ./after.kaem >> helloworld.src
+	# mes
+	echo -n "src " >> helloworld.src
+	wc -c ./mes-0.24.tar.gz >> helloworld.src
+	cat ./mes-0.24.tar.gz >> helloworld.src
+	echo -n "src " >> helloworld.src
+	wc -c ./nyacc-1.00.2.tar.gz >> helloworld.src
+	cat ./nyacc-1.00.2.tar.gz >> helloworld.src
+
 	# this builds M2-Mesoplanet compiler and runs after.kaem
 	cat stage0-posix.src >> helloworld.src
 

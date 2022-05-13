@@ -4,5 +4,26 @@ PATH=./x86/bin
 M2-Mesoplanet --architecture x86 -f ./helloworld.c -o ./helloworld
 ./helloworld
 
-# make helloworld the build artifact
-catm /dev/hda ./helloworld
+NYACC_PKG=nyacc-1.00.2
+MES_PKG=mes-0.24
+
+ungz ${MES_PKG}.tar.gz
+untar ${MES_PKG}.tar
+
+ungz ${NYACC_PKG}.tar.gz
+untar ${NYACC_PKG}.tar
+
+MES_ARENA=20000000
+MES_MAX_ARENA=20000000
+MES_STACK=6000000
+MES_PREFIX=../${MES_PKG}
+
+GUILE_LOAD_PATH=${MES_PREFIX}/mes/module:${MES_PREFIX}/module#:../${NYACC_PKG}/module
+
+cd ${MES_PKG}
+PATH=../x86/bin
+
+kaem --verbose
+
+# make mes-m2 the build artifact
+catm /dev/hda ./mes-m2

@@ -10,8 +10,8 @@ IMG=builder-hex0.img
 LOG="build.log"
 
 
-# Create empty disk image for up to 1M of source
-dd if=/dev/zero of="$IMG" bs=512 count=2056
+# Create empty disk image for up to 5M of source
+dd if=/dev/zero of="$IMG" bs=512 count=10248
 
 # Add binary boot sectors
 dd if="$BIN" of="$IMG" bs=512 conv=notrunc
